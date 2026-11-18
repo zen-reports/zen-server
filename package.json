@@ -1,5 +1,5 @@
 {
-  "name": "@arpanp/zen-server",
+  "name": "@zen-reports/zen-server",
   "version": "1.0.0-dev",
   "type": "module",
   "description": "Backend SaaS ingestion and reporting service for Zen Reporter",
@@ -17,11 +17,27 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:unused": "npx tsc --noEmit --noUnusedLocals --noUnusedParameters",
+    "spellcheck": "npx cspell lint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx src/db/migrate.ts"
   },
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,json,md}": [
+      "eslint --fix --max-warnings=0 --no-warn-ignored",
+      "prettier --write"
+    ],
+    "*.{css,yml,yaml,html}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
-    "@arpanp/zen-core": "^1.0.0-dev",
     "@aws-sdk/client-s3": "^3.1169.0",
     "@aws-sdk/s3-request-presigner": "^3.1169.0",
     "@azure/storage-blob": "^12.34.0",
@@ -33,9 +49,21 @@
     "postgres": "^4.1.1"
   },
   "devDependencies": {
+    "@cspell/eslint-plugin": "^10.5.1",
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^2.1.1",
+    "@eslint/markdown": "^8.0.3",
     "@types/node": "^26.6.6",
+    "cspell": "^10.5.1",
     "drizzle-kit": "^0.31.11",
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.1",
+    "prettier": "^3.10.1",
     "tsx": "^4.23.15",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.2"
   }
 }

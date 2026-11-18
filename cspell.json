@@ -1,0 +1,27 @@
+{
+  "language": "en-US, en-GB",
+  "ignorePaths": [
+    "package.json",
+    "package-lock.json",
+    "node_modules",
+    ".git",
+    "dist",
+    "src/db/migrations/**"
+  ],
+  "words": [
+    "apatelia",
+    "Arpan",
+    "arpanp",
+    "drizzle",
+    "Hono",
+    "jsonb",
+    "migrator",
+    "Patelia",
+    "postgres",
+    "presign",
+    "presigned",
+    "ulik",
+    "vivisector",
+    "zenreports"
+  ]
+}
